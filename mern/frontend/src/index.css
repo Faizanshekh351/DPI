@@ -1,0 +1,103 @@
+/* ============================================================
+   Tailwind CSS v4 — CSS-first configuration
+   In v4, @tailwind directives are replaced with @import,
+   and theme settings go in @theme instead of tailwind.config.js
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design Tokens  (replaces tailwind.config.js theme.extend)
+   ------------------------------------------------------------------ */
+@theme {
+  --color-background: #0a0a0f;
+  --color-panel:      #151520;
+  --color-primary:    #4f46e5;
+  --color-secondary:  #a855f7;
+  --color-accent:     #10b981;
+  --color-danger:     #ef4444;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* ------------------------------------------------------------------
+   Base styles
+   ------------------------------------------------------------------ */
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: #f3f4f6; /* gray-100 */
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Utility / Component classes
+   ------------------------------------------------------------------ */
+@layer components {
+  .glass-panel {
+    background-color: color-mix(in srgb, var(--color-panel) 70%, transparent);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.4), 0 8px 10px -6px rgba(0,0,0,0.2);
+  }
+
+  .btn-primary {
+    background-image: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.25);
+  }
+  .btn-primary:active {
+    transform: scale(0.95);
+  }
+
+  .btn-danger {
+    background-color: color-mix(in srgb, var(--color-danger) 20%, transparent);
+    color: var(--color-danger);
+    border: 1px solid color-mix(in srgb, var(--color-danger) 30%, transparent);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  .btn-danger:hover {
+    background-color: var(--color-danger);
+    color: #fff;
+  }
+  .btn-danger:active {
+    transform: scale(0.95);
+  }
+
+  .input-field {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    transition: all 0.2s ease;
+    width: 100%;
+  }
+  .input-field:focus {
+    outline: none;
+    border-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-primary) 50%, transparent);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Custom Scrollbar
+   ------------------------------------------------------------------ */
+::-webkit-scrollbar        { width: 8px; height: 8px; }
+::-webkit-scrollbar-track  { background: #0a0a0f; }
+::-webkit-scrollbar-thumb  { background: #2a2a35; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #3f3f50; }

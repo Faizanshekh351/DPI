@@ -1,0 +1,9 @@
+node_modules/
+.env
+db_log.json
+test.ts
+check_db.ts
+test_block.ts
+mern/backend/outputs/
+dist/
+.DS_Store
