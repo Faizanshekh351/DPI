@@ -1,9 +1,21 @@
+# Dependency Directories
 node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Build and Outputs
+dist/
+build/
+backend/outputs/
+*.pcap
+
+# Environment
 .env
+.env.local
+.DS_Store
+
+# Test / Debug files
 db_log.json
 test.ts
-check_db.ts
 test_block.ts
-mern/backend/outputs/
-dist/
-.DS_Store
+check_db.ts
