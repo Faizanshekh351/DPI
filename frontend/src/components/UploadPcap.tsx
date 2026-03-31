@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UploadCloud, File, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
-import { api } from '../api/client';
+import { api, ROOT_URL } from '../api/client';
 import type { AxiosError } from 'axios';
 
 export default function UploadPcap({ onUploadComplete }: { onUploadComplete: () => void }) {
@@ -170,7 +170,7 @@ export default function UploadPcap({ onUploadComplete }: { onUploadComplete: () 
               
               <div className="flex flex-col gap-3 mt-4 w-full px-6">
                 {downloadUrl && (
-                  <a href={`http://localhost:5000${downloadUrl}`} download className="w-full">
+                  <a href={`${ROOT_URL}${downloadUrl}`} download className="w-full">
                     <button className="w-full py-3 rounded-xl font-bold bg-gradient-to-r from-emerald-500 to-emerald-400 text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:scale-[1.02] transition-all flex justify-center items-center gap-2 border-0">
                       Download Filtered PCAP
                     </button>
